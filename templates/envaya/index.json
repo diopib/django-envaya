@@ -1,9 +1,13 @@
 {
- "events":[{
-   "event":"send",
-   "messages":[{
-     "to":"{{phone}}",
-     "message":"{{var}}",
-   }]
- }]
+    "events": [
+        {
+            "event": "send",
+            "messages": [
+                {
+                    "to": "{{to}}",
+                    "message": "{{message}}"
+                }
+            ]
+        }
+    ]
 }

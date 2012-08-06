@@ -1,23 +1,109 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-		<meta http-equiv="Content-Style-Type" content="text/css">
-		<meta http-equiv="Content-Script-Type" content="text/javascript">
-		<title>
 
-		</title>
-		<style type="text/css">
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Django-Envaya Admin page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-		</style>
-		<script type="text/javascript"><!--
-		// -->	
-		</script>
-	</head>
-	<body>
-		<form action="." method="POST">
-			{{IncomingForm.as_p}}
-			{{SendForm.as_p}}
-		</form>
-	</body>
-	</html>
+    <!-- Le styles -->
+    <link href="/static/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+    </style>
+    <link href="/static/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="/static/bootstrap/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/static/bootstrap/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/static/bootstrap/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/static/bootstrap/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="/static/bootstrap/ico/apple-touch-icon-57-precomposed.png">
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">Django-Envaya Admin</a>
+          <!--<div class="nav-collapse">
+            <ul class="nav">
+              <li class="active"><a href="#">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container" align="center">
+
+      <div class="page-header">
+        <h1 align="left">Rules creation <small>Set your rules here</small></h1>
+      </div>
+      <form action="." method="POST" class="well form-inline"><input id="id_name" type="text" name="name" maxlength="50" placeholder="Name">
+	    <input id="id_in_text" type="text" name="in_text" maxlength="150" placeholder="Incoming Text" class="span4">
+	    <input id="id_out_text" type="text" name="out_text" maxlength="140" placeholder="Outgoing Text" class="span4">
+	    <button type="submit" class="btn btn-primary">Save</button>
+	    <button type="reset" class="btn">Cancel</button>
+	  </form>
+	  <br><br>
+	  <div class="page-header">
+        <h1 align="left">Rules List <small>Check and Edit your rules here</small></h1>
+      </div>
+
+      <table align="left" class="table table-bordered">
+      	<thead>
+      	  <tr>
+      	  	<th>Name</th>
+      	  	<th>Incoming</th>
+      	  	<th>Outgoing</th>
+      	  	<th>Edit</th>
+      	  </tr>
+      	</thead>
+      	<tbody>
+        {% for b in BasicRule %}
+          <tr>
+          	<td>{{ b.name }}</td><td>{{b.in_text}}</td><td>{{b.out_text}}</td><td><a class="btn" href="#"><i class="icon-edit"></i></a> <a class="btn" href="#"><i class="icon-remove"></i></a></td>
+          </tr>
+        {% endfor %}
+      	</tbody>
+      </table>
+
+    </div> <!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/static/bootstrap/js/jquery.js"></script>
+    <script src="/static/bootstrap/js/bootstrap-transition.js"></script>
+    <script src="/static/bootstrap/js/bootstrap-alert.js"></script>
+    <script src="/static/bootstrap/js/bootstrap-modal.js"></script>
+    <script src="/static/bootstrap/js/bootstrap-dropdown.js"></script>
+    <script src="/static/bootstrap/js/bootstrap-scrollspy.js"></script>
+    <script src="/static/bootstrap/js/bootstrap-tab.js"></script>
+    <script src="/static/bootstrap/js/bootstrap-tooltip.js"></script>
+    <script src="/static/bootstrap/js/bootstrap-popover.js"></script>
+    <script src="/static/bootstrap/js/bootstrap-button.js"></script>
+    <script src="/static/bootstrap/js/bootstrap-collapse.js"></script>
+    <script src="/static/bootstrap/js/bootstrap-carousel.js"></script>
+    <script src="/static/bootstrap/js/bootstrap-typeahead.js"></script>
+
+  </body>
+</html>

@@ -14,6 +14,7 @@ class Request(models.Model):
 
 	created_at = models.DateTimeField(auto_now_add = True)
 
+
 class Response(models.Model):
 	"""model describing the connection with envaya server"""
 
@@ -23,6 +24,14 @@ class Rule(models.Model):
 
 	in_request = models.ForeignKey(Request)
 	out_response = models.ForeignKey(Response)
+
+
+class BasicRule(models.Model):
+	"""basic rule model : incoming text, outgoing text"""
+
+	name = models.CharField(max_length=50)
+	in_text = models.CharField(max_length=150)
+	out_text = models.CharField(max_length=140)
 
 
 # BEG : defining requests ###############################################################
